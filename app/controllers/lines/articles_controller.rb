@@ -55,6 +55,8 @@ module Lines
         type: 'article',
         url: url_for(@article),
         site_name: SITE_TITLE,
+        image: @article.image_url if @article.image_url.present?,
+        description: @article.teaser if @article.teaser.present?
       }
       meta_tags[:image] = @article.image_url if @article.image_url.present?
       set_meta_tags title: @article.title,
